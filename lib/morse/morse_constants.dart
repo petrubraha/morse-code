@@ -46,7 +46,7 @@ const Map<String, String> numbersEncryption = {
 };
 
 const Map<String, String> punctuationEncryption = {
-  ' ': wordGap,
+  ' ': '$wordGap',
   '.': '$dit$dah$dit$dah$dit$dah',
   ',': '$dah$dah$dit$dit$dah$dah',
   '?': '$dit$dit$dah$dah$dit$dit',

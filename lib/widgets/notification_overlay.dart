@@ -22,11 +22,9 @@ class NotificationOverlayState extends State<NotificationOverlay>
   void showMessage(String message, {bool isError = false}) {
     final id = _idCounter++;
     setState(() {
-      _notifications.add(_NotificationEntry(
-        id: id,
-        message: message,
-        isError: isError,
-      ));
+      _notifications.add(
+        _NotificationEntry(id: id, message: message, isError: isError),
+      );
     });
 
     Timer(const Duration(seconds: 4), () {
@@ -106,10 +104,7 @@ class _NotificationCardState extends State<_NotificationCard>
     _slideAnimation = Tween<Offset>(
       begin: const Offset(1, 0),
       end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOutCubic,
-    ));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
     _controller.forward();
   }
 

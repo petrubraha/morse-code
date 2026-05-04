@@ -62,6 +62,7 @@ class _AppShellState extends State<AppShell> {
     final overlay = NotificationOverlay.of(context);
     try {
       final decrypted = MorseCodec.decrypt(message);
+      print(decrypted);
       overlay?.showSuccess('SMS received: $decrypted');
     } catch (_) {
       overlay?.showError('Received SMS but could not decrypt.');

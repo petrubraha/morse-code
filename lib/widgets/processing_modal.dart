@@ -4,13 +4,11 @@ import '../services/flash_service.dart';
 
 class ProcessingModal extends StatefulWidget {
   final String plainText;
-  final Map<String, String> charToMorse;
   final VoidCallback onComplete;
 
   const ProcessingModal({
     super.key,
     required this.plainText,
-    required this.charToMorse,
     required this.onComplete,
   });
 
@@ -48,7 +46,7 @@ class _ProcessingModalState extends State<ProcessingModal>
       if (!mounted) return;
 
       final char = input[i].toUpperCase();
-      final morse = widget.charToMorse[char];
+      final morse = morseEncryption[char];
       if (morse == null) continue;
 
       setState(() {
@@ -155,7 +153,9 @@ class _ProcessingModalState extends State<ProcessingModal>
                       boxShadow: _isFlashOn
                           ? [
                               BoxShadow(
-                                color: const Color(0xFFFFC107).withValues(alpha: 0.6),
+                                color: const Color(
+                                  0xFFFFC107,
+                                ).withValues(alpha: 0.6),
                                 blurRadius: 30,
                                 spreadRadius: 8,
                               ),
@@ -196,11 +196,14 @@ class _ProcessingModalState extends State<ProcessingModal>
                   ),
                 ),
                 child: Text(
-                  _currentMorse.split('').map((s) {
-                    if (s == dit) return '•';
-                    if (s == dah) return '—';
-                    return s;
-                  }).join(' '),
+                  _currentMorse
+                      .split('')
+                      .map((s) {
+                        if (s == dit) return '•';
+                        if (s == dah) return '—';
+                        return s;
+                      })
+                      .join(' '),
                   style: const TextStyle(
                     color: Color(0xFFE94560),
                     fontSize: 28,

@@ -56,7 +56,6 @@ class _MessageScreenState extends State<MessageScreen> {
       barrierColor: Colors.black.withValues(alpha: 0.85),
       builder: (_) => ProcessingModal(
         plainText: sanitized,
-        charToMorse: morseEncryption,
         onComplete: () => _onFlashingComplete(sanitized),
       ),
     );
@@ -102,20 +101,37 @@ class _MessageScreenState extends State<MessageScreen> {
                     shape: BoxShape.circle,
                     color: const Color(0xFFE94560).withValues(alpha: 0.15),
                   ),
-                  child: const Icon(Icons.edit_note, size: 56, color: Color(0xFFE94560)),
+                  child: const Icon(
+                    Icons.edit_note,
+                    size: 56,
+                    color: Color(0xFFE94560),
+                  ),
                 ),
                 const SizedBox(height: 32),
                 const Text(
                   'Compose Message',
-                  style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.w300, letterSpacing: 1),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.w300,
+                    letterSpacing: 1,
+                  ),
                 ),
                 const SizedBox(height: 8),
-                Text('To: ${widget.phoneNumber}', style: TextStyle(color: Colors.white.withValues(alpha: 0.4), fontSize: 14)),
+                Text(
+                  'To: ${widget.phoneNumber}',
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.4),
+                    fontSize: 14,
+                  ),
+                ),
                 const SizedBox(height: 40),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+                    border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.1),
+                    ),
                     color: Colors.white.withValues(alpha: 0.05),
                   ),
                   child: TextField(
@@ -126,9 +142,15 @@ class _MessageScreenState extends State<MessageScreen> {
                     style: const TextStyle(color: Colors.white, fontSize: 20),
                     decoration: InputDecoration(
                       hintText: 'Type your message...',
-                      hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.2), fontSize: 20),
+                      hintStyle: TextStyle(
+                        color: Colors.white.withValues(alpha: 0.2),
+                        fontSize: 20,
+                      ),
                       border: InputBorder.none,
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 20,
+                      ),
                     ),
                     onSubmitted: (_) => _submit(),
                   ),
@@ -142,8 +164,12 @@ class _MessageScreenState extends State<MessageScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFE94560),
                       foregroundColor: Colors.white,
-                      disabledBackgroundColor: const Color(0xFFE94560).withValues(alpha: 0.3),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      disabledBackgroundColor: const Color(
+                        0xFFE94560,
+                      ).withValues(alpha: 0.3),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
                       elevation: 8,
                     ),
                     child: Row(
@@ -151,8 +177,14 @@ class _MessageScreenState extends State<MessageScreen> {
                       children: [
                         const Icon(Icons.flash_on, size: 22),
                         const SizedBox(width: 8),
-                        Text(_isProcessing ? 'Processing...' : 'Flash & Send',
-                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, letterSpacing: 1)),
+                        Text(
+                          _isProcessing ? 'Processing...' : 'Flash & Send',
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -172,7 +204,11 @@ class _MessageScreenState extends State<MessageScreen> {
                 color: Colors.white.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Icon(Icons.arrow_back, color: Colors.white.withValues(alpha: 0.7), size: 22),
+              child: Icon(
+                Icons.arrow_back,
+                color: Colors.white.withValues(alpha: 0.7),
+                size: 22,
+              ),
             ),
           ),
         ),

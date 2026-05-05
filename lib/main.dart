@@ -30,7 +30,7 @@ class MorseApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Roboto',
       ),
-      home: const AppShell(),
+      home: const NotificationOverlay(child: AppShell()),
     );
   }
 }
@@ -44,7 +44,7 @@ class AppShell extends StatefulWidget {
 
 class _AppShellState extends State<AppShell> {
   String? _phoneNumber;
-  StreamSubscription<String>? _smsSub;
+  StreamSubscription<String>? _smsSubscription;
 
   @override
   void initState() {
@@ -53,7 +53,7 @@ class _AppShellState extends State<AppShell> {
   }
 
   void _listenForSms() {
-    _smsSub = SmsService.incomingSms.listen((message) {
+    _smsSubscription = SmsService.incomingSms.listen((message) {
       _handleIncomingSms(message);
     });
   }
@@ -62,7 +62,6 @@ class _AppShellState extends State<AppShell> {
     final overlay = NotificationOverlay.of(context);
     try {
       final decrypted = MorseCodec.decrypt(message);
-      print(decrypted);
       overlay?.showSuccess('SMS received: $decrypted');
     } catch (_) {
       overlay?.showError('Received SMS but could not decrypt.');
@@ -71,7 +70,7 @@ class _AppShellState extends State<AppShell> {
 
   @override
   void dispose() {
-    _smsSub?.cancel();
+    _smsSubscription?.cancel();
     SmsService.dispose();
     super.dispose();
   }
@@ -88,24 +87,22 @@ class _AppShellState extends State<AppShell> {
           ),
         ),
         child: SafeArea(
-          child: NotificationOverlay(
-            child: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 400),
-              child: _phoneNumber == null
-                  ? PhoneScreen(
-                      key: const ValueKey('phone'),
-                      onPhoneSubmitted: (phone) {
-                        setState(() => _phoneNumber = phone);
-                      },
-                    )
-                  : MessageScreen(
-                      key: const ValueKey('message'),
-                      phoneNumber: _phoneNumber!,
-                      onBack: () {
-                        setState(() => _phoneNumber = null);
-                      },
-                    ),
-            ),
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 400),
+            child: _phoneNumber == null
+                ? PhoneScreen(
+                    key: const ValueKey('phone'),
+                    onPhoneSubmitted: (phone) {
+                      setState(() => _phoneNumber = phone);
+                    },
+                  )
+                : MessageScreen(
+                    key: const ValueKey('message'),
+                    phoneNumber: _phoneNumber!,
+                    onBack: () {
+                      setState(() => _phoneNumber = null);
+                    },
+                  ),
           ),
         ),
       ),

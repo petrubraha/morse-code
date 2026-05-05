@@ -106,7 +106,7 @@ class MainActivity : FlutterActivity() {
         val filter = IntentFilter("android.provider.Telephony.SMS_RECEIVED")
         filter.priority = IntentFilter.SYSTEM_HIGH_PRIORITY
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(smsReceiver, filter, Context.RECEIVER_NOT_EXPORTED)
+            registerReceiver(smsReceiver, filter, Context.RECEIVER_EXPORTED)
         } else {
             registerReceiver(smsReceiver, filter)
         }

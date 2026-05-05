@@ -1,6 +1,6 @@
 name: morse_code
 description: "Morse code flasher and SMS sender"
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   torch_light: ^1.0.0
   permission_handler: ^11.4.0
+  telephony: ^0.2.0
 
 dev_dependencies:
   flutter_test:

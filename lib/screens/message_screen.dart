@@ -40,7 +40,7 @@ class _MessageScreenState extends State<MessageScreen> {
     }
 
     final sanitized = MorseCodec.sanitize(text);
-    for (final char in sanitized.toUpperCase().split('')) {
+    for (final char in sanitized.split('')) {
       if (morseEncryption[char] == null) {
         overlay?.showError('Unsupported character: "$char"');
         return;

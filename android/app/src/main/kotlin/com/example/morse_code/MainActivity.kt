@@ -76,6 +76,10 @@ class MainActivity : FlutterActivity() {
                 smsManager.sendTextMessage(phone, null, message, null, null)
             }
             result.success(true)
+        } catch (e: SecurityException) {
+            result.error("SMS_PERMISSION_DENIED", e.message, null)
+        } catch (e: IllegalArgumentException) {
+            result.error("SMS_INVALID_ARGS", e.message, null)
         } catch (e: Exception) {
             result.error("SMS_FAILED", e.message, null)
         }

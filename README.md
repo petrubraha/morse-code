@@ -31,6 +31,16 @@
     <span> · </span>
       <a href="https://github.com/petrubraha/morse-code/issues/">Request Feature</a>
   </h4>
+
+  <img src="doc/ss/cabfdfff-f9c7-45ba-a601-a30bf96b2525.jpg" alt="screenshot" width="300" height="650" />
+  <img src="doc/ss/db8e0024-2680-49af-905d-bfb01e494e98.jpg" alt="screenshot" width="300" height="650" />
+
+  <img src="doc/ss/1b9d8fee-644d-4609-b50f-712704b09738.jpg" alt="screenshot" width="300" height="650" />
+  <img src="doc/ss/d1331824-e9cc-4339-abfa-dba7f9f1d76f.jpg" alt="screenshot" width="300" height="650" />
+
+  <img src="doc/ss/1aef8483-e4f7-4466-b013-d33debb8e2da.jpg" alt="screenshot" width="300" height="650" />
+  <img src="doc/ss/9813ca73-2fc6-4207-baeb-dfeb1e526aab.jpg" alt="screenshot" width="300" height="650" />
+
 </div>
 
 ## ✨ Features

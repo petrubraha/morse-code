@@ -1,7 +1,7 @@
 name: morse_code
-description: "Morse code flasher and SMS sender"
+description: "An android application that encodes text into morse code with camera and sms capabilities"
 publish_to: "none"
-version: 1.0.0+1
+version: 0.0.2
 
 environment:
   sdk: ^3.10.1

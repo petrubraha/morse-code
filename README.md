@@ -1,6 +1,37 @@
-# Morse-Code
+<div align="center">
 
-A Flutter application that encrypts text into Morse code, flashes it via the phone's LED, sends it as SMS, and decrypts received Morse code messages.
+  <img src="./doc/morse-code.logo.png" alt="logo" width="200" height="auto" />
+  <h1>Morse Code</h1>
+
+  <p>
+    <a href="https://github.com/petrubraha/morse-code/graphs/contributors">
+      <img src="https://img.shields.io/github/contributors/petrubraha/morse-code" alt="contributors" />
+    </a>
+    <a href="">
+      <img src="https://img.shields.io/github/last-commit/petrubraha/morse-code" alt="last update" />
+    </a>
+    <a href="https://github.com/petrubraha/morse-code/network/members">
+      <img src="https://img.shields.io/github/forks/petrubraha/morse-code" alt="forks" />
+    </a>
+    <a href="https://github.com/petrubraha/morse-code/stargazers">
+      <img src="https://img.shields.io/github/stars/petrubraha/morse-code" alt="stars" />
+    </a>
+    <a href="https://github.com/petrubraha/morse-code/issues/">
+      <img src="https://img.shields.io/github/issues/petrubraha/morse-code" alt="open issues" />
+    </a>
+    <a href="https://github.com/petrubraha/morse-code/blob/master/LICENSE">
+      <img src="https://img.shields.io/github/license/petrubraha/morse-code.svg" alt="license" />
+    </a>
+  </p>
+   
+  <h4>
+      <a href="./doc/requirements.md">System requirments</a>
+    <span> · </span>
+      <a href="https://github.com/petrubraha/morse-code/issues/">Report Bug</a>
+    <span> · </span>
+      <a href="https://github.com/petrubraha/morse-code/issues/">Request Feature</a>
+  </h4>
+</div>
 
 ## ✨ Features
 

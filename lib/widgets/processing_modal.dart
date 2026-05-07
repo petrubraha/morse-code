@@ -50,7 +50,7 @@ class _ProcessingModalState extends State<ProcessingModal>
       if (morse == null) continue;
 
       setState(() {
-        _currentChar = input[i] == ' ' ? '⎵' : input[i].toUpperCase();
+        _currentChar = char == ' ' ? '⎵' : char;
         _currentMorse = morse;
       });
 
@@ -63,8 +63,10 @@ class _ProcessingModalState extends State<ProcessingModal>
         if (!mounted) return;
         final signal = morse[j];
 
-        setState(() => _isFlashOn = true);
-        _pulseController.forward();
+        if (mounted) {
+          setState(() => _isFlashOn = true);
+          _pulseController.forward();
+        }
 
         await FlashService.flashSignal(signal);
 
@@ -73,6 +75,7 @@ class _ProcessingModalState extends State<ProcessingModal>
           _pulseController.reverse();
         }
 
+        // If it is not the last element, then wait a small gap.
         if (j < morse.length - 1) {
           await FlashService.interElementGap();
         }

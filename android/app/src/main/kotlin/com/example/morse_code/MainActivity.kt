@@ -51,9 +51,6 @@ class MainActivity : FlutterActivity() {
             Manifest.permission.RECEIVE_SMS,
             Manifest.permission.READ_SMS,
         )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            permissions.add(Manifest.permission.POST_NOTIFICATIONS)
-        }
 
         val needed = permissions.filter {
             ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED

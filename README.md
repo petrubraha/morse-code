@@ -1,7 +1,7 @@
 <div align="center">
 
   <img src="./doc/morse-code.logo.png" alt="logo" width="200" height="auto" />
-  <h1>Morse Code</h1>
+  <h1>Morse-Code</h1>
 
   <p>
     <a href="https://github.com/petrubraha/morse-code/graphs/contributors">

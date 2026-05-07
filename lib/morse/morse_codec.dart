@@ -13,7 +13,7 @@ class MorseCodec {
   }
 
   static String sanitize(String input) {
-    return input.trim().replaceAll(RegExp(r'\s+'), ' ');
+    return input.trim().replaceAll(RegExp(r'\s+'), ' ').toUpperCase();
   }
 
   static String encrypt(String rawInput) {
@@ -23,19 +23,25 @@ class MorseCodec {
     }
 
     final buffer = StringBuffer();
-    for (int i = 0; i < input.length; i++) {
-      final char = input[i].toUpperCase();
-      final code = morseEncryption[char];
-      if (code == null) {
-        throw ArgumentError('Unsupported character: "${input[i]}"');
-      }
+    String code = _getCode(input, 0);
+    buffer.write(code);
 
-      if (i > 0 && char != ' ' && input[i - 1] != ' ') {
-        buffer.write(letterGap);
-      }
+    for (int i = 1; i < input.length; i++) {
+      code = _getCode(input, i);
+      buffer.write(letterGap);
       buffer.write(code);
     }
     return buffer.toString();
+  }
+
+  static String _getCode(String input, int index) {
+    final char = input[index];
+    final code = morseEncryption[char];
+    if (code == null) {
+      throw ArgumentError('Unsupported character: "${input[index]}"');
+    }
+
+    return code;
   }
 
   static String decrypt(String morseInput) {

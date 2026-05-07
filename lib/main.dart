@@ -59,6 +59,7 @@ class _AppShellState extends State<AppShell> {
   }
 
   void _handleIncomingSms(String message) {
+    if (!mounted) return;
     final overlay = NotificationOverlay.of(context);
     try {
       final decrypted = MorseCodec.decrypt(message);
